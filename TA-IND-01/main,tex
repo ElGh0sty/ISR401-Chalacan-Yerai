@@ -1,1 +1,202 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!80!black,
+    urlcolor=blue!80!black,
+    citecolor=blue!80!black
+}
+
+\setlist[itemize]{label=-}
+
+\title{\textbf{Trabajo Individual: ISO/IEC/IEEE 29148:2018 y Tipos de Requisitos de un Sistema Conocido (Mercado Libre)}\\ \large Ingeniería de Requerimientos (ISR-401) -- 4.\textsuperscript{o} Nivel Paralelo A}
+\author{\textbf{Estudiante:} Yerai David Chalacan Toala \\ \textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD \\ \texttt{gguerrero@uteq.edu.ec}}
+\date{Semana 2 (2 de noviembre - 8 de noviembre de 2026)}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción y Descripción del Sistema}
+El presente trabajo aborda la aplicación práctica de la norma internacional ISO/IEC/IEEE 29148:2018 \cite{iso29148} y el modelo de calidad de producto ISO/IEC 25010:2023 \cite{iso25010} sobre una plataforma real de uso cotidiano. El sistema seleccionado es la aplicación móvil de comercio electrónico \textbf{Mercado Libre} (Ecuador). 
+
+Mercado Libre es un ecosistema digital cuya función principal es conectar a vendedores y compradores para la comercialización de productos nuevos y usados. Entre sus usuarios se encuentran compradores finales, vendedores particulares, tiendas oficiales (como Miami Store) y operadores logísticos. El contexto de uso abarca la navegación de catálogo, filtrado de búsquedas, gestión del carrito de compras, procesamiento de pagos mediante tarjetas de débito/crédito y el seguimiento del envío hasta la recepción del paquete.
+
+\section{Resumen Analítico de la Norma ISO/IEC/IEEE 29148:2018}
+
+\subsection{Construcción de un Requisito Bien Formado (Cláusula 5.2.4)}
+Según la cláusula 5.2.4 de la norma ISO/IEC/IEEE 29148:2018 \cite{iso29148}, la sintaxis de un requisito bien formado debe ser rigurosa para evitar ambigüedades en la interpretación técnica. La norma prescribe la estructura formal básica formada por tres componentes indispensables: un sujeto identificable, una condición de aplicación u operatividad, y una acción orientada a un resultado medible.
+
+En términos sintácticos, la norma establece el uso del verbo modal obligativo \textit{«shall»} (en español traducido como «deberá» o «el sistema deberá») para declarar capacidades obligatorias. Para enunciados hipotéticos o condicionales se emplea la estructura: \textit{«Cuando [condición de disparo], el [sujeto/sistema] deberá [acción sobre objeto]»}. Se diferencia expresamente el término \textit{«shall»} (requisito normativo), \textit{«should»} (recomendación no vinculante) y \textit{«may»} (permiso o facultad de diseño), prohibiendo el uso de lenguaje impreciso que desvíe la verificación objetiva.
+
+\subsection{Características de un Requisito Individual (Cláusula 5.2.5)}
+La cláusula 5.2.5 \cite{iso29148} estipula que todo enunciado de requisito individual debe cumplir con nueve propiedades fundamentales de calidad para ser considerado válido dentro del proceso de ingeniería de requerimientos:
+\begin{enumerate}
+    \item \textbf{Necesario (Necessary):} Representa una capacidad imprescindible sin la cual el sistema no satisface las necesidades reales de los interesados ni el marco legal.
+    \item \textbf{Adecuado al diseño (Implementation free):} Declara qué debe hacer el sistema sin imponer soluciones prematuras de diseño o implementación.
+    \item \textbf{Inambiguo (Unambiguous):} Posee una única interpretación posible por parte de desarrolladores, evaluadores y usuarios.
+    \item \textbf{Completo (Complete):} Expresa de manera autosuficiente toda la información requerida sin omitir condiciones ni estados.
+    \item \textbf{Singular (Singular):} Expone una única capacidad o restricción aislada, evitando la conjunción de múltiples funciones en una sola oración.
+    \item \textbf{Factible (Feasible):} Puede realizarse dentro de los límites técnicos, presupuestarios y temporales del proyecto.
+    \item \textbf{Verificable (Verifiable):} Permite comprobar objetivamente su cumplimiento mediante pruebas, inspección, análisis o demostración.
+    \item \textbf{Correcto (Correct):} Refleja de forma fiel la necesidad real del interesado u origen de elicitación.
+    \item \textbf{Conforme (Conforming):} Cumple rigurosamente con la sintaxis, estilo y normas documentales fijadas para el proyecto.
+\end{enumerate}
+
+\subsection{Características de un Conjunto de Requisitos (Cláusula 5.2.6)}
+De acuerdo con la cláusula 5.2.6 \cite{iso29148}, la calidad global de la especificación no se limita a las frases individuales, sino a las propiedades del conjunto cohesionado:
+\begin{itemize}
+    \item \textbf{Completo del conjunto (Set Complete):} No deja lagunas funcionales ni casos de borde no especificados dentro del alcance definido.
+    \item \textbf{Consistente (Consistent):} Los requisitos no presentan contradicciones lógicas ni términos conflictivos entre sí.
+    \item \textbf{Factible del conjunto (Set Feasible):} El grupo completo de requerimientos puede realizarse simultáneamente con los recursos asignados.
+    \item \textbf{Modificable (Modifiable):} La estructura del documento permite realizar cambios locales sin romper la trazabilidad global.
+    \item \textbf{Trazable (Traceable):} Cada requisito posee un identificador único que permite rastrear su origen operativo e implementación en código/pruebas.
+\end{itemize}
+
+\subsection{Criterios de Lenguaje y Términos Prohibidos (Cláusula 5.2.7)}
+La cláusula 5.2.7 \cite{iso29148} prohíbe taxativamente el empleo de adjetivos, adverbios u oraciones ambiguas que no admitan una métrica objetiva. Términos como \textit{«rápido»}, \textit{«seguro»}, \textit{«fácil de usar»}, \textit{«robusto»}, \textit{«optimizado»}, \textit{«eficiente»}, \textit{«según sea necesario»} o \textit{«en la medida de lo posible»} quedan excluidos por ser indemostrables en un protocolo de pruebas formal. En su lugar, la norma exige la cuantificación mediante indicadores numéricos concretos con métrica, unidad de medida y umbral de aceptación.
+
+\section{Glosario de Términos (Cláusula 3 de ISO/IEC/IEEE 29148)}
+
+A continuación se parafrasean 10 términos clave de la cláusula 3 de la norma \cite{iso29148}, acompañados de un ejemplo contextualizado en la plataforma Mercado Libre:
+
+\begin{enumerate}
+    \item \textbf{Requisito (Requirement):} Expresión formal de una capacidad o condición que debe satisfacer un sistema para resolver un problema real o cumplir un contrato. \\
+    \textit{Ejemplo en Mercado Libre:} El sistema deberá procesar el pago mediante tarjeta de débito confirmando la transacción con la entidad bancaria.
+    \item \textbf{Requisito Funcional (Functional Requirement):} Enunciado que especifica una acción o comportamiento operativo que el software debe ejecutar ante una entrada de datos. \\
+    \textit{Ejemplo en Mercado Libre:} El usuario podrá filtrar la lista de resultados seleccionando la categoría «Monitores y Accesorios».
+    \item \textbf{Restricción (Constraint):} Exigencia organizativa, legal o técnica que limita el abanico de soluciones de diseño posibles durante el desarrollo. \\
+    \textit{Ejemplo en Mercado Libre:} La aplicación deberá cumplir con el estándar PCI-DSS para el manejo seguro de datos bancarios.
+    \item \textbf{Requisito de Interfaz Externa (External Interface Requirement):} Especificación de los puntos de conexión y protocolos de intercambio de información con sistemas externos. \\
+    \textit{Ejemplo en Mercado Libre:} La app se comunicará con los servicios web del operador logístico para calcular la fecha estimada de entrega (ej. entre 12 y 18/nov).
+    \item \textbf{Requisito de Desempeño (Performance Requirement):} Especificación cuantitativa referida a la velocidad, capacidad de procesamiento o rendimiento bajo cargas de trabajo definidad. \\
+    \textit{Ejemplo en Mercado Libre:} La búsqueda de productos responderá en un tiempo menor a 1.5 segundos ante solicitudes concurrentes.
+    \item \textbf{Atributo (Attribute):} Propiedad o característica cualitativa o cuantitativa asociada a un elemento de requisito (ej. prioridad, estado, autor). \\
+    \textit{Ejemplo en Mercado Libre:} El atributo «Prioridad = Alta» asignado al requisito de procesamiento del botón «Pagar y finalizar».
+    \item \textbf{Trazabilidad (Traceability):} Capacidad de discernir la relación histórica entre un requisito, su origen de negocio y los componentes de software derivados. \\
+    \textit{Ejemplo en Mercado Libre:} Vincular el ID del requisito `RF-03` directamente con la prueba unitaria del carrito de compras.
+    \item \textbf{Verificación (Verification):} Confirmación mediante evidencia objetiva de que el sistema cumple con las especificaciones establecidas en los requisitos. \\
+    \textit{Ejemplo en Mercado Libre:} Ejecutar una prueba automatizada para confirmar que el cupón de descuento resta efectivamente US\$ 26.71 al total.
+    \item \textbf{Especificación de Requisitos de Software (SRS):} Documento formal estructurado que consolida la totalidad de requerimientos que el software debe satisfacer. \\
+    \textit{Ejemplo en Mercado Libre:} El documento técnico que especifica las reglas de negocio para la compra protegida y garantías.
+    \item \textbf{Interesado (Stakeholder):} Persona o entidad que afecta o puede verse afectada por las decisiones y resultados del desarrollo del sistema. \\
+    \textit{Ejemplo en Mercado Libre:} El comprador final, las tiendas oficiales (ej. Miami Store) y el equipo de soporte al cliente.
+\end{enumerate}
+
+\section{Evidencias de Campo del Sistema Real}
+
+Para respaldar técnicamente la elicitación y comprobación de los requisitos de Mercado Libre, se incluyen tres capturas de pantalla tomadas directamente de la aplicación móvil (Figura~\ref{fig:capturas}).
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{captura1.jpeg}
+        \caption{Filtros de búsqueda (Monitor).}
+        \label{fig:cap1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{captura2.jpeg}
+        \caption{Detalle de producto y stock.}
+        \label{fig:cap2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{captura3.jpeg}
+        \caption{Pantalla de pago y checkout.}
+        \label{fig:cap3}
+    \end{minipage}
+    \caption{Evidencias de pantalla de la app Mercado Libre registradas por el estudiante.}
+    \label{fig:capturas}
+\end{figure}
+
+\section{Formulación y Clasificación de 15 Requisitos}
+
+La Tabla~\ref{tab:requisitos} resume los 15 requisitos redactados para Mercado Libre, abarcando 5 tipos de la norma ISO/IEC/IEEE 29148 \cite{iso29148} e incluyendo 5 requisitos de calidad cuantificados conforme a la ISO/IEC 25010:2023 \cite{iso25010}.
+
+\small
+\begin{longtable}{p{0.08\textwidth} p{0.32\textwidth} p{0.18\textwidth} p{0.18\textwidth} p{0.18\textwidth}}
+\caption{Tabla de clasificación y criterios de aceptación de los 15 requisitos.} \label{tab:requisitos} \\
+\toprule
+\textbf{ID} & \textbf{Enunciado} & \textbf{Tipo (5.2)} & \textbf{ISO 25010 (si aplica)} & \textbf{Criterio de Aceptación Verificable} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+RF01 & El sistema permitirá aplicar filtros múltiples por envío gratis, ofertas y tamaño de pantalla en la búsqueda. & Funcional & N/A & Retornar únicamente productos que coincidan con las casillas activadas. \\
+RF02 & El sistema desplegará el distintivo «Más Vendido» y la tienda oficial responsable del producto. & Funcional & N/A & Visualizar el distintivo en la vista detallada si el vendedor supera 1000 ventas. \\
+RF03 & El sistema permitirá seleccionar la cantidad deseada mostrando las unidades disponibles (ej. +25 disponibles). & Funcional & N/A & Impedir seleccionar una cantidad mayor al stock registrado en base de datos. \\
+RF04 & El sistema calculará el resumen de compra descontando cupones activos (ej. descuento de US\$ 26.71). & Funcional & N/A & Restar el monto del cupón del precio base mostrando el total exacto. \\
+RF05 & El sistema registrará la dirección de entrega «Guayacan 3ra Etapa» y actualizará la fecha estimada. & Funcional & N/A & Guardar los datos de envío y recalcular la ventana de llegada de forma automática. \\
+RF06 & El sistema permitirá seleccionar «Nueva tarjeta de débito» como método de pago en el checkout. & Funcional & N/A & Presentar el formulario de ingreso de tarjeta y validar los 16 dígitos. \\
+RF07 & El sistema incluirá la opción «Compra Protegida» con devolución dentro de los primeros 30 días. & Funcional & N/A & Generar la etiqueta de devolución gratuita si el usuario cancela en el plazo. \\
+RC01 & El tiempo de procesamiento al presionar «Ver resultados» en los filtros no superará 1.2 segundos bajo 2000 usuarios concurrentes. & Calidad (Desempeño) & Eficiencia de desempeño - Tiempo & Tiempo de latencia $\le 1.2$ s en servidor bajo prueba de carga. \\
+RC02 & Los datos de facturación (Cédula 305027426-9) se cifrarán con algoritmo AES-256 en reposo y TLS 1.3 en tránsito. & Calidad (Seguridad) & Seguridad - Confidencialidad & Cifrado comprobado al 100\% en auditoría de red de paquetes HTTP. \\
+RC03 & El flujo completo desde la ficha del producto hasta el checkout se ejecutará en máximo 3 clics en usuarios mayores a 60 años. & Calidad (Usabilidad) & Usabilidad - Operabilidad & Prueba de usabilidad con 90\% de éxito en $\le 3$ interacciones. \\
+RC04 & La aplicación mantendrá una disponibilidad operativa de 99.9\% medido en ciclo mensual 24/7. & Calidad (Fiabilidad) & Fiabilidad - Disponibilidad & Registro de caídas $\le 43.8$ minutos de interrupción no planificada al mes. \\
+RC05 & La integración con la API del proveedor de facturación devolverá respuesta exitosa en $\ge 99.8\%$ de intentos. & Calidad (Compatibilidad) & Compatibilidad - Interoperabilidad & Tasa de error en llamadas a la API externa $\le 0.2\%$. \\
+RES1 & La aplicación móvil deberá ejecutarse en dispositivos Android 10 o versiones posteriores. & Restricción & N/A & Instalación y ejecución correcta en compilación con API Level 29+. \\
+INT1 & El módulo de ubicación consultará el código postal del usuario a través del servicio GPS del teléfono. & Interfaz externa & N/A & Recepción de coordenadas geográficas en formato decimal con precisión de 10m. \\
+RES2 & La interfaz responderá al estándar de colores azul corporativo y amarillo sin alterar botones clave. & Restricción & N/A & Inspección de hoja de estilos confirmando códigos hexadecimales oficiales. \\
+\end{longtable}
+\normalsize
+
+\section{Autoevaluación y Corrección de Requisitos}
+
+En apego a la norma ISO/IEC/IEEE 29148 (cláusulas 5.2.5 y 5.2.7) \cite{iso29148}, se evaluaron las 15 formulaciones iniciales identificando fallos de ambigüedad, falta de singularidad o falta de umbrales cuantitativos. La Tabla~\ref{tab:autoevaluacion} ilustra las revisiones aplicadas.
+
+\begin{table}[h!]
+\small
+\centering
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\textbf{ID} & \textbf{Versión Anterior (Con deficiencias)} & \textbf{Fallo Detectado (5.2.5 / 5.2.7)} & \textbf{Versión Corregida (Normativa)} \\
+\midrule
+RC01 & La búsqueda con filtros debe ser rápida cuando el usuario navegue. & Contiene el término prohibido «rápida» (5.2.7) y no es verificable. & El tiempo de respuesta de la búsqueda con filtros no superará los 1.2 segundos bajo 2000 usuarios concurrentes. \\
+RC02 & Los datos de la cédula del usuario deben estar bien protegidos en el sistema. & Ambiguo y subjetivo («bien protegidos»); viola 5.2.5 (Verificable). & Los datos de facturación se cifrarán obligatoriamente mediante AES-256 en reposo y TLS 1.3 en tránsito. \\
+RC03 & El sistema debe ser fácil de usar y comprar rápido en pocos pasos. & Múltiples adjetivos prohibidos («fácil», «rápido») y falta singularidad. & El flujo de compra directa se ejecutará en un máximo de 3 clics desde la ficha del producto. \\
+RF04 & El sistema aplicará descuentos y calculará los envíos y mostrará el total. & Viola la propiedad de Singularidad (5.2.5) al agrupar tres acciones distintas. & El sistema calculará el total descontando cupones activos (ej. US\$ 26.71) y sumando el costo de envío. \\
+RC04 & La app no debe caerse casi nunca durante el año de funcionamiento. & Término ambiguo («casi nunca»); viola la característica de Inambiguo. & La aplicación mantendrá una disponibilidad operativa del 99.9\% medida en ciclos mensuales. \\
+\bottomrule
+\end{tabularx}
+\caption{Tabla de autoevaluación: versión defectuosa vs. versión corregida.}
+\label{tab:autoevaluacion}
+\end{table}
+
+\section{Reflexión Final}
+
+Durante la formulación y cuantificación de requisitos para la plataforma Mercado Libre, el tipo de requisito que representó la mayor complejidad conceptual y técnica fue el de \textbf{Calidad en Uso y Usabilidad cuantificada (RC03)}, bajo el modelo ISO/IEC 25010:2023 \cite{iso25010}. 
+
+La dificultad principal radica en la tendencia habitual a redactar la usabilidad mediante adjetivos cualitativos tradicionales («intuitivo», «fácil de usar», «amigable»). Adaptar estas necesidades a enunciados rigurosos según la cláusula 5.2.7 de la ISO/IEC/IEEE 29148 exige definir métricas cuantitativas observables ---tales como la cantidad máxima de clics, la tasa de éxito de la tarea o la tolerancia a errores del usuario--- sin invadir ni condicionar de forma prematura las decisiones de diseño de la interfaz gráfica. Asimismo, el equilibrio entre fijar un umbral de rendimiento realista (como latencias de 1.2s en la búsqueda) y no asumir arquitecturas técnicas inexistentes requiere una lectura minuciosa del contexto operativo real del software.
+
+\section{Declaración de Uso de Inteligencia Artificial}
+\begin{itemize}
+    \item \textbf{Herramienta y Versión:} Gemini 3 Flash.
+    \item \textbf{Propósito:} Corrección ortográfica del texto y apoyo en la estructuración de sintaxis de tablas de alta densidad en \LaTeX.
+    \item \textbf{Verificación del estudiante:} Se revisaron manualmente los enunciados, asegurando que la clasificación corresponda a las cláusulas reales de la norma ISO/IEC/IEEE 29148:2018 \cite{iso29148} y que los datos informativos pertenezcan a las capturas reales obtenidas del sistema Mercado Libre.
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{iso29148} ISO/IEC/IEEE, \emph{Systems and software engineering -- Life cycle processes -- Requirements engineering}, ISO/IEC/IEEE Standard 29148:2018, 2018.
+\bibitem{iso25010} ISO/IEC, \emph{Systems and software engineering -- Systems and software quality requirements and evaluation (SQuaRE) -- Product quality model}, ISO/IEC Standard 25010:2023, 2023.
+\bibitem{pohl2025} K. Pohl, \emph{Requirements Engineering: Fundamentals, Principles, and Techniques}, 2nd ed. Berlin, Heidelberg, Germany: Springer, 2025.
+\bibitem{swebok2024} H. Washizaki, Ed., \emph{Guide to the Software Engineering Body of Knowledge (SWEBOK Guide)}, Version 4.0. Los Alamitos, CA, USA: IEEE Computer Society, 2024.
+\bibitem{lopdp2021} Asamblea Nacional del Ecuador, \emph{Ley Orgánica de Protección de Datos Personales}, Registro Oficial, Quinto Suplemento No. 459, 26 de mayo de 2021.
+\bibitem{acm2018} Association for Computing Machinery, \emph{ACM Code of Ethics and Professional Conduct}, https://www.acm.org/code-of-ethics, 2018.
+\end{thebibliography}
+
+\end{document}
